@@ -21,6 +21,7 @@ public:
     {
         root->data = value;
     };
+
     int countNodes()
     {
         if (root == NULL)
@@ -51,5 +52,26 @@ public:
         }
         int isRootFull = (root->right != nullptr && root->left != nullptr) ? 1 : 0;
         return isRootFull + countFullNodes(root->left) + countFullNodes(root->right);
+    }
+    int treeDepth()
+    {
+        if (root == NULL)
+            return -1;
+        int leftDepth = treeDepth(root->left);
+
+        int rightDepth = treeDepth(root->right);
+
+        return 1 + max(leftDepth, rightDepth);
+    }
+
+    void print()
+    {
+        if (root = NULL)
+        {
+            return;
+        }
+        cout << root->value << endl;
+        print(root->left);
+        print(root->right);
     }
 };
