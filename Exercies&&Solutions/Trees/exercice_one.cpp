@@ -48,8 +48,6 @@ int countFullNodes(TreeNode *root)
     return isFull + countFullNodes(root->left) + countFullNodes(root->right);
 }
 
-
-
 // Main function to test
 int main()
 {
