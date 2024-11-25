@@ -23,10 +23,33 @@ public:
     };
     int countNodes()
     {
-        if (root = NULL)
+        if (root == NULL)
         {
             return 0;
         }
         return 1 + countNodes(root->left) + countNodes(root->right);
+    }
+
+    int countLeaves()
+    {
+        if (root == NULL)
+        {
+            return 0;
+        }
+        if (root->left == nullptr && root->right == nullptr)
+        {
+            return 1;
+        }
+        return countLeaves(root->left) + countLeaves(root->right);
+    }
+
+    int countFullNodes()
+    {
+        if (root == NULL)
+        {
+            return 0;
+        }
+        int isRootFull = (root->right != nullptr && root->left != nullptr) ? 1 : 0;
+        return isRootFull + countFullNodes(root->left) + countFullNodes(root->right);
     }
 };
