@@ -74,4 +74,6 @@ public:
         print(root->left);
         print(root->right);
     }
+
+    void insert(Object data) {}
 };
